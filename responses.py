@@ -28,6 +28,10 @@ def convert_binary(n: int):
     return str(binary)[2:]
 
 
+def convert_decimal(n: int):
+    return int(n, 2)
+
+
 def handle_response(message) -> str:
     msg = message.lower()
     if msg[0] == '!':  # Command : !
@@ -48,7 +52,7 @@ def handle_response(message) -> str:
 
         # Random Number
         elif msg[:9] == '!rand-num':
-            if msg == '!rand-num':
+            if msg == '!ra nd-num':
                 return f'`Use \'!rand-num\' command to generate random number between n and m Example:' \
                        f'\nrand-num 2, 10. The bot will respond with a random number between 2 and 10`'
             else:
@@ -60,7 +64,12 @@ def handle_response(message) -> str:
             if msg == '!convert-binary':
                 return f'`Use this command to convert n(decimal) to binary Example:\nconvert-binary 9. The' \
                        f'bot will return the binary number of 9`'
-            return convert_binary(int(msg[16:]))
+            return f'**Binary :** {convert_binary(int(msg[16:]))}'
 
+        elif msg[:16] == '!convert-decimal':
+            if msg == '!convert-decimal':
+                return f'`Use this command to convert n(binary) to decimal Example:\nconvert-decimal 1001. The' \
+                       f' bot will return the decimal number of 1001`'
+            return f'**Decimal :** {convert_decimal(msg[17:])}'
         return 'I don\'t recognize your command. Please type \'!help\''
 
