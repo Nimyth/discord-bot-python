@@ -5,7 +5,8 @@ import random
 command_list = '`!generate-quotes -> generate a quotes\n' \
                '!rand-num n, m -> generate a random number between n and m\n' \
                '!calc operation -> calculate an operation\n!convert-binary -> convert a decimal number ' \
-               'to a binary number`'
+               'to a binary number' \
+               '\n!convert-decimal -> convert a binary to decimal number`'
 
 
 def get_quotes():
